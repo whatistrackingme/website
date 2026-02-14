@@ -1,0 +1,32 @@
+---
+import type { Locale } from "../i18n/config";
+import { t, tArray } from "../i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const items = tArray(locale, "faq.items");
+---
+
+<section class="py-16 px-4 bg-base-200">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8">
+      {t(locale, "faq.heading")}
+    </h2>
+    <div class="space-y-2">
+      {
+        items.map((item) => (
+          <div class="collapse collapse-arrow bg-base-100">
+            <input type="radio" name="faq-accordion" />
+            <div class="collapse-title font-semibold">{item.question}</div>
+            <div class="collapse-content">
+              <p>{item.answer}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

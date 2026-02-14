@@ -1,0 +1,37 @@
+---
+import type { Locale } from "../i18n/config";
+import { t, getLocalizedPath } from "../i18n/utils";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<nav
+  class="navbar bg-base-100/80 backdrop-blur-sm sticky top-0 z-50 border-b border-base-300"
+>
+  <div class="navbar-start">
+    <a
+      href={getLocalizedPath("/", locale)}
+      class="btn btn-ghost text-lg font-bold"
+    >
+      {t(locale, "site.title")}
+    </a>
+  </div>
+  <div class="navbar-end gap-1">
+    <a
+      href="https://app.whatistracking.me"
+      class="btn btn-primary btn-sm"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {t(locale, "nav.app")}
+    </a>
+    <LanguageSwitcher locale={locale} />
+    <ThemeToggle />
+  </div>
+</nav>

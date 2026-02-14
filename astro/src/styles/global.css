@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes: false;
+}
+@plugin "./catppuccinTheme.mocha.ts";
+@plugin "./catppuccinTheme.latte.ts";
+
+/* Modern friendly font - Inter for UI */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Apply Inter as default */
+html {
+  font-family: var(--font-sans);
+}
+
+pre,
+code {
+  font-family: var(--font-mono);
+}
+
+/* Themed focus-visible ring for keyboard navigation */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Leaflet map theme integration - !important overrides leaflet.css default #ddd */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: var(--color-base-300) !important;
+}
+
+/* Fix tile gaps - prevents white lines between tiles */
+.leaflet-tile-container img {
+  outline: 1px solid transparent;
+}
+
+.leaflet-tile {
+  filter: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  border-radius: 0.5rem;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.leaflet-popup-tip {
+  background-color: var(--color-base-100);
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+}
+
+.leaflet-popup-close-button {
+  color: var(--color-base-content) !important;
+  opacity: 0.6;
+}
+
+.leaflet-popup-close-button:hover {
+  opacity: 1;
+}
+
+/* Leaflet controls */
+.leaflet-control-zoom a {
+  background-color: var(--color-base-100) !important;
+  color: var(--color-base-content) !important;
+  border-color: var(--color-base-300) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: var(--color-base-200) !important;
+}
+
+.leaflet-control-attribution {
+  background-color: color-mix(
+    in srgb,
+    var(--color-base-100) 80%,
+    transparent
+  ) !important;
+  color: color-mix(
+    in srgb,
+    var(--color-base-content) 70%,
+    transparent
+  ) !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--color-primary) !important;
+}
+
+/* Custom marker styling */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}

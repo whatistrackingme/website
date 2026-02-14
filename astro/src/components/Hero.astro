@@ -1,0 +1,52 @@
+---
+import type { Locale } from "../i18n/config";
+import { t, tArray } from "../i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const steps = tArray(locale, "howItWorks.steps");
+---
+
+<section class="hero bg-base-200 py-16">
+  <div class="hero-content flex-col max-w-5xl w-full">
+    <div class="text-center max-w-2xl">
+      <h1 class="text-5xl font-bold">{t(locale, "hero.title")}</h1>
+      <p class="py-6 text-lg opacity-80">
+        {t(locale, "hero.subtitle")}
+      </p>
+      <a
+        href="https://app.whatistracking.me"
+        class="btn btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t(locale, "hero.cta")}
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="w-full">
+      <h2 class="text-2xl font-bold text-center mb-8">
+        {t(locale, "howItWorks.heading")}
+      </h2>
+      <ul class="steps steps-vertical lg:steps-horizontal w-full">
+        {
+          steps.map((step) => (
+            <li class="step step-primary">
+              <div class="text-left lg:text-center mt-2 lg:mt-4">
+                <p class="font-semibold">{step.title}</p>
+                <p class="text-sm opacity-70 max-w-[10rem]">
+                  {step.description}
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

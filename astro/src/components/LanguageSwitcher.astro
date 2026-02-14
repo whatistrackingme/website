@@ -1,0 +1,66 @@
+---
+import { locales, localeLabels, type Locale } from "../i18n/config";
+import { getLocalizedPath } from "../i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+function getEquivalentPath(targetLocale: Locale): string {
+  // Strip current locale prefix to get the base path
+  let basePath = currentPath;
+  for (const loc of locales) {
+    if (basePath.startsWith(`/${loc}/`)) {
+      basePath = basePath.slice(`/${loc}`.length);
+      break;
+    }
+    if (basePath === `/${loc}`) {
+      basePath = "/";
+      break;
+    }
+  }
+  return getLocalizedPath(basePath || "/", targetLocale);
+}
+---
+
+<div class="dropdown dropdown-end">
+  <div tabindex="0" role="button" class="btn btn-ghost btn-sm gap-1">
+    <svg
+      class="h-4 w-4"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="2" y1="12" x2="22" y2="12"></line>
+      <path
+        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+      ></path>
+    </svg>
+    {localeLabels[locale]}
+  </div>
+  <ul
+    tabindex="0"
+    class="dropdown-content menu bg-base-200 rounded-box z-10 w-40 p-2 shadow"
+  >
+    {
+      locales.map((loc) => (
+        <li>
+          <a
+            href={getEquivalentPath(loc)}
+            class={loc === locale ? "active" : ""}
+          >
+            {localeLabels[loc]}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

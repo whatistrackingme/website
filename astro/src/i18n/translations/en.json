@@ -1,0 +1,85 @@
+{
+  "site": {
+    "title": "WhatIsTracking.ME",
+    "description": "Discover who is digitally tracking you in real life. Wear a QR code, get notified when someone or something interacts with it."
+  },
+  "nav": {
+    "home": "Home",
+    "app": "Open App"
+  },
+  "hero": {
+    "title": "What Is Tracking ME?",
+    "subtitle": "Many have this question, but there are no definitive answers. In the age of no-consent scraping, we surrender all our digital data. What about our offline interactions in daily life?",
+    "cta": "Find Out"
+  },
+  "howItWorks": {
+    "heading": "How It Works",
+    "steps": [
+      {
+        "title": "Go Outside",
+        "description": "Live your normal daily life."
+      },
+      {
+        "title": "Wear a QR Code",
+        "description": "Display a unique QR code from our app on a badge, sticker, device, or paper."
+      },
+      {
+        "title": "Get Captured",
+        "description": "Someone takes a picture or video of you, knowingly or not."
+      },
+      {
+        "title": "Get Notified",
+        "description": "Receive a notification when someone or something interacts with the QR code, even weeks later."
+      },
+      {
+        "title": "See the Map",
+        "description": "View where you got captured and interaction data on an interactive map."
+      }
+    ]
+  },
+  "faq": {
+    "heading": "Common Questions",
+    "items": [
+      {
+        "question": "Will this expose all of the trackers?",
+        "answer": "No. It will only show part of the surface."
+      },
+      {
+        "question": "Why does this even work?",
+        "answer": "Because companies are data hungry. They want to scrape any new data that they haven't seen before. They will decode the QR code and scrape the content to train their next-generation AI or ad profiling tool. This can happen instantly or delayed even after weeks or months. Our service will be able to notify you as soon as we are able to track an interaction."
+      },
+      {
+        "question": "Does participation hurt me in any way?",
+        "answer": "Yes, you will stand out from the crowd until everyone adopts it. The QR code will make you easier to track with our current technological capabilities."
+      },
+      {
+        "question": "Why should I donate my data?",
+        "answer": "The donated data will be used for the benefit of everyone and will allow our collective society to prove that regulations and changes are needed. You are not obligated to donate the interaction data and your anonymized local data."
+      },
+      {
+        "question": "Why did you create this?",
+        "answer": "This was born out of curiosity during security testing of AI infrastructure."
+      },
+      {
+        "question": "How can I collaborate?",
+        "answer": "Use our app in the wild and donate data or become involved in the community and development of the project. We accept PRs and welcome new members."
+      },
+      {
+        "question": "What about AI usage?",
+        "answer": "We do not reject AI and use it in our daily work. The code surrounding this project was also mostly vibe coded and only a few parts are completely handwritten. We still think that manual review and proper understanding is important and try to limit the code and features we maintain to a reasonable degree, where we can still handle the project without any AI usage."
+      },
+      {
+        "question": "Is it technically possible for you to see my data, even if I don't donate?",
+        "answer": "We are not able to see your location or timestamps at any time. We are technically able to see the raw interaction data and the metadata you create when interacting with our service. Nevertheless, we chose to not use them without explicit consent and we are open to implement effective technical measures to improve this."
+      },
+      {
+        "question": "Can I self-host this?",
+        "answer": "We are not able to see your location or timestamps at any time. We are technically able to see the raw interaction data and the metadata you create when interacting with our service. Nevertheless, we chose to not use them without explicit consent and we are open to implement effective technical measures to improve this."
+      }
+    ]
+  },
+  "footer": {
+    "source": "Source Code",
+    "privacy": "Your data stays yours."
+  }
+}

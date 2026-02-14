@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import FAQ from "../../components/FAQ.astro";
+
+const locale = "ja" as const;
+
+const pages = await getCollection("pages");
+const page = pages.find((p) => p.id === "home-ja");
+const { Content } = page ? await render(page) : { Content: null };
+---
+
+<BaseLayout locale={locale}>
+  <Hero locale={locale} />
+
+  {
+    Content && (
+      <section class="py-16 px-4">
+        <div class="prose prose-lg max-w-3xl mx-auto">
+          <Content />
+        </div>
+      </section>
+    )
+  }
+
+  <FAQ locale={locale} />
+</BaseLayout>

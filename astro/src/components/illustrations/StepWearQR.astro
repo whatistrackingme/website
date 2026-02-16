@@ -1,0 +1,45 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 120 120"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={["w-16 h-16 lg:w-20 lg:h-20", className]}
+  aria-hidden="true"
+>
+  <!-- Person silhouette - head -->
+  <circle cx="60" cy="25" r="10"></circle>
+  <!-- Body -->
+  <line x1="60" y1="35" x2="60" y2="70"></line>
+  <!-- Arms -->
+  <line x1="60" y1="48" x2="40" y2="58"></line>
+  <line x1="60" y1="48" x2="80" y2="58"></line>
+  <!-- Legs -->
+  <line x1="60" y1="70" x2="45" y2="95"></line>
+  <line x1="60" y1="70" x2="75" y2="95"></line>
+  <!-- QR code badge on chest -->
+  <rect
+    x="49"
+    y="45"
+    width="22"
+    height="22"
+    rx="2"
+    fill="var(--color-primary)"
+    opacity="0.15"></rect>
+  <rect x="49" y="45" width="22" height="22" rx="2"></rect>
+  <!-- QR pattern inside -->
+  <rect x="52" y="48" width="5" height="5" fill="currentColor"></rect>
+  <rect x="63" y="48" width="5" height="5" fill="currentColor"></rect>
+  <rect x="52" y="59" width="5" height="5" fill="currentColor"></rect>
+  <rect x="58" y="53" width="4" height="4" fill="currentColor"></rect>
+  <rect x="63" y="59" width="5" height="3" fill="currentColor"></rect>
+</svg>

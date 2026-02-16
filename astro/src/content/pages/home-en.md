@@ -40,7 +40,7 @@ Help us find answers, or at least get closer.
 Maybe it will also be useful in a regulatory debate to make sure we retain or gain
 the privilege of consent in real life, which we lost in digital life.
 
-## The Technical Breakdown
+## Technical Breakdown
 
 It starts with the fact that we have deployed several servers that will track any interaction
 with them. This means any DNS, HTTP, or HTTPS request aimed at these will be logged, analyzed, and processed.

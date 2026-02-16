@@ -1,0 +1,43 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  viewBox="0 0 120 120"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={["w-16 h-16 lg:w-20 lg:h-20", className]}
+  aria-hidden="true"
+>
+  <!-- Smartphone body -->
+  <rect x="30" y="15" width="60" height="90" rx="8"></rect>
+  <!-- Screen -->
+  <rect
+    x="36"
+    y="25"
+    width="48"
+    height="65"
+    rx="2"
+    fill="var(--color-primary)"
+    opacity="0.08"></rect>
+  <!-- Camera lens -->
+  <circle cx="60" cy="57" r="14"></circle>
+  <circle cx="60" cy="57" r="9"></circle>
+  <circle cx="60" cy="57" r="4" fill="var(--color-primary)" opacity="0.3"
+  ></circle>
+  <!-- Viewfinder corners -->
+  <path d="M38 30 L38 38 L46 38"></path>
+  <path d="M82 30 L82 38 L74 38"></path>
+  <path d="M38 85 L38 77 L46 77"></path>
+  <path d="M82 85 L82 77 L74 77"></path>
+  <!-- Flash indicator -->
+  <circle cx="72" cy="35" r="2" fill="var(--color-primary)" opacity="0.5"
+  ></circle>
+</svg>

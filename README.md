@@ -26,3 +26,16 @@ All commands are run from the root of the project:
 ## Deployment
 
 This project deploys to GitHub Pages via a GitHub Actions workflow. Pushes to `main` trigger an automatic build and deploy.
+
+### Configuration
+
+Set these environment variables to configure the deployment URL (e.g., in `.env.production` or as GitHub Actions secrets/variables):
+
+| Variable    | Description                          | Example                                |
+| :---------- | :----------------------------------- | :------------------------------------- |
+| `SITE_URL`  | Full URL of the deployed site        | `https://whatistrackingme.github.io`   |
+| `BASE_PATH` | Base path prefix (for subpath hosting) | `/website`                           |
+
+- **GitHub Pages with default domain**: set `SITE_URL=https://<org>.github.io` and `BASE_PATH=/<repo>`
+- **Custom domain**: set `SITE_URL=https://yourdomain.com` (no `BASE_PATH` needed)
+- **Neither set**: the site builds with root-relative paths, suitable for local preview

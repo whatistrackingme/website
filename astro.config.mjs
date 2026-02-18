@@ -11,6 +11,8 @@ const allowedHosts = ALLOWED_HOSTS
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://whatistrackingme.github.io",
+  base: "/website",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "ja"],

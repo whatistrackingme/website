@@ -12,26 +12,29 @@ const { locale } = Astro.props;
 ---
 
 <nav
-  class="navbar bg-base-100/80 backdrop-blur-sm sticky top-0 z-50 border-b border-base-300"
+  class="bg-base-100/80 backdrop-blur-md sticky top-0 z-50 border-b border-base-300/60 shadow-sm"
 >
-  <div class="navbar-start">
-    <a
-      href={getLocalizedPath("/", locale)}
-      class="btn btn-ghost text-lg font-bold"
-    >
-      {t(locale, "site.title")}
-    </a>
-  </div>
-  <div class="navbar-end gap-1">
-    <a
-      href="https://app.whatistracking.me"
-      class="btn btn-primary btn-sm"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {t(locale, "nav.app")}
-    </a>
-    <LanguageSwitcher locale={locale} />
-    <ThemeToggle />
+  <div class="navbar mx-auto max-w-6xl px-4">
+    <div class="navbar-start">
+      <a
+        href={getLocalizedPath("/", locale)}
+        class="btn btn-ghost text-primary text-lg font-bold gap-2 font-display"
+      >
+        <span class="logo-mark h-8 w-8" aria-hidden="true"></span>
+        <span class="hidden sm:inline">{t(locale, "site.title")}</span>
+      </a>
+    </div>
+    <div class="navbar-end gap-1.5">
+      <a
+        href="https://app.whatistracking.me"
+        class="btn btn-primary btn-sm shadow-sm"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t(locale, "nav.app")}
+      </a>
+      <LanguageSwitcher locale={locale} />
+      <ThemeToggle />
+    </div>
   </div>
 </nav>

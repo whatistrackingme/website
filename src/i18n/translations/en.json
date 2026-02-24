@@ -39,6 +39,8 @@
   },
   "faq": {
     "heading": "Common Questions",
+    "showAll": "Show all",
+    "hideAll": "Hide all",
     "items": [
       {
         "question": "Will this expose all of the trackers?",
@@ -79,7 +81,7 @@
     ]
   },
   "footer": {
-    "source": "Source Code",
-    "privacy": "Your data stays yours."
+    "signoff": "Built with <3 for information symmetry",
+    "openApp": "Open App"
   }
 }

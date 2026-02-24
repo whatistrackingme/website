@@ -1,26 +1,41 @@
 ---
-import type { Locale } from "../i18n/config";
-import { t } from "../i18n/utils";
+import { execSync } from "node:child_process";
 
-interface Props {
-  locale: Locale;
+let gitHash = "unknown";
+try {
+  gitHash = execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
+} catch {
+  // fallback
 }
 
-const { locale } = Astro.props;
+const githubUrl = "https://github.com/whatistrackingme/website";
 ---
 
-<footer class="footer footer-center bg-base-200 text-base-content p-6">
-  <div class="flex flex-col items-center gap-2">
-    <div class="flex gap-4">
+<footer class="border-t border-base-300">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 text-sm text-base-content/50">
+    <div class="flex items-center gap-2">
+      <span class="logo-mark h-5 w-5" aria-hidden="true"></span>
+      <a href="https://whatistracking.me" target="_blank" rel="noopener noreferrer" class="font-display text-primary font-semibold tracking-wide hover:text-primary/80">What Is Tracking Me?</a>
+    </div>
+    <div class="flex items-center gap-4">
       <a
-        href="https://github.com/whatistrackingme"
-        class="link link-hover"
+        href={`${githubUrl}/commit/${gitHash}`}
         target="_blank"
         rel="noopener noreferrer"
+        class="hover:text-base-content flex items-center gap-1 font-mono text-xs"
       >
-        {t(locale, "footer.source")}
+        <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/></svg>
+        {gitHash}
+      </a>
+      <a
+        href={githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-base-content flex items-center gap-1"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <span class="hidden sm:inline">GitHub</span>
       </a>
     </div>
-    <p class="text-sm opacity-70">{t(locale, "footer.privacy")}</p>
   </div>
 </footer>

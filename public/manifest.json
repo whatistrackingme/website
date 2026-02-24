@@ -4,8 +4,8 @@
   "description": "Privacy awareness tool that reveals how your real-world presence is tracked digitally",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1e1e2e",
-  "theme_color": "#1e1e2e",
+  "background_color": "#161618",
+  "theme_color": "#161618",
   "orientation": "portrait-primary",
   "scope": "/",
   "icons": [

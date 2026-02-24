@@ -18,20 +18,22 @@ const { class: className } = Astro.props;
 >
   <!-- Bell body -->
   <path
-    d="M60 15 C60 15 45 20 45 45 L45 65 L35 75 L85 75 L75 65 L75 45 C75 20 60 15 60 15"
+    d="M60 22 C60 22 43 28 43 50 C43 58 40 64 34 72 L86 72 C80 64 77 58 77 50 C77 28 60 22 60 22"
   ></path>
-  <!-- Bell bottom curve -->
-  <path d="M50 75 C50 82 54 88 60 88 C66 88 70 82 70 75"></path>
+  <!-- Bell rim highlight -->
+  <line x1="34" y1="72" x2="86" y2="72"></line>
+  <!-- Bell bottom curve (clapper) -->
+  <path d="M50 72 C50 80 54 85 60 85 C66 85 70 80 70 72"></path>
   <!-- Bell top nub -->
-  <circle cx="60" cy="13" r="3" fill="currentColor"></circle>
+  <circle cx="60" cy="18" r="3" fill="currentColor"></circle>
   <!-- Notification dot -->
-  <circle cx="78" cy="28" r="8" fill="var(--color-primary)" opacity="0.8"
+  <circle cx="80" cy="32" r="8" fill="var(--color-primary)" opacity="0.8"
   ></circle>
-  <circle cx="78" cy="28" r="8"></circle>
+  <circle cx="80" cy="32" r="8"></circle>
   <!-- Vibration arcs left -->
-  <path d="M28 45 C24 50 24 60 28 65"></path>
-  <path d="M22 40 C16 48 16 62 22 70"></path>
+  <path d="M26 48 C22 53 22 60 26 65"></path>
+  <path d="M20 43 C14 51 14 62 20 70"></path>
   <!-- Vibration arcs right -->
-  <path d="M92 45 C96 50 96 60 92 65"></path>
-  <path d="M98 40 C104 48 104 62 98 70"></path>
+  <path d="M94 48 C98 53 98 60 94 65"></path>
+  <path d="M100 43 C106 51 106 62 100 70"></path>
 </svg>

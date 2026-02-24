@@ -2,6 +2,23 @@
 
 - **Make sure that i18n is considered in major architectural decisions**
 
+## Environment Setup
+
+The dev server requires an `ALLOWED_HOSTS` variable for proxy access (Coder/Codespaces).
+
+- `.env.local` - Contains `ALLOWED_HOSTS` (comma-separated hostnames). Gitignored.
+- `example.env.local` - Template for contributors. Committed.
+
+> **For Claude Agents**: Before starting the dev server, check that `.env.local` exists and contains `ALLOWED_HOSTS`. If it doesn't exist, ask the user for the proxy hostname and create it from `example.env.local`.
+
+## Dev Server Management
+
+> **For Claude Agents**: Before starting the dev server, always check if it's already running:
+> ```bash
+> curl -s http://localhost:4321 > /dev/null && echo "Running" || echo "Not running"
+> ```
+> **Never run `npm run dev` if a dev server is already running.** Starting a duplicate server wastes resources and may cause port conflicts. Only start a new server if no existing one is detected.
+
 ## Styling Rules
 
 1. **DaisyUI first** - Always check if a DaisyUI component exists before writing custom styles
@@ -56,7 +73,6 @@ npm run knip      # Find unused exports/dependencies
 ```
 
 Run all three before considering work complete.
-
 
 **Icon guidelines:**
 

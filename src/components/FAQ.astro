@@ -10,19 +10,44 @@ const { locale } = Astro.props;
 const items = tArray(locale, "faq.items");
 ---
 
-<section class="py-16 px-4 bg-base-200">
-  <div class="max-w-2xl mx-auto">
-    <h2 class="text-3xl font-bold text-center mb-8">
+<section class="py-20 px-4 bg-base-200">
+  <div class="max-w-3xl mx-auto">
+    <h2
+      class="text-3xl sm:text-4xl font-bold text-center uppercase tracking-wider mb-4"
+    >
       {t(locale, "faq.heading")}
     </h2>
-    <div class="space-y-2">
+    <div
+      class="w-16 h-1 bg-primary mx-auto rounded-full mb-12"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="flex justify-end mb-4">
+      <label class="label cursor-pointer gap-2">
+        <span class="label-text text-sm" id="faq-toggle-label">
+          {t(locale, "faq.showAll")}
+        </span>
+        <input
+          type="checkbox"
+          class="toggle toggle-primary toggle-sm"
+          id="faq-toggle-all"
+          data-label-show={t(locale, "faq.showAll")}
+          data-label-hide={t(locale, "faq.hideAll")}
+        />
+      </label>
+    </div>
+
+    <div class="space-y-3" id="faq-list">
       {
         items.map((item) => (
-          <div class="collapse collapse-arrow bg-base-100">
-            <input type="radio" name="faq-accordion" />
-            <div class="collapse-title font-semibold">{item.question}</div>
-            <div class="collapse-content">
-              <p>{item.answer}</p>
+          <div class="collapse collapse-arrow bg-base-100 shadow-sm hover:shadow-md transition-shadow duration-200 rounded-lg">
+            <input type="checkbox" class="faq-item-toggle" />
+            <div class="collapse-title font-semibold text-base">
+              {item.question}
+            </div>
+            <div class="collapse-content text-base-content/70">
+              <p class="leading-relaxed">{item.answer}</p>
             </div>
           </div>
         ))
@@ -30,3 +55,16 @@ const items = tArray(locale, "faq.items");
     </div>
   </div>
 </section>
+
+<script>
+  const toggle = document.getElementById("faq-toggle-all") as HTMLInputElement;
+  const label = document.getElementById("faq-toggle-label")!;
+  const items = document.querySelectorAll<HTMLInputElement>(".faq-item-toggle");
+
+  toggle.addEventListener("change", () => {
+    items.forEach((item) => (item.checked = toggle.checked));
+    label.textContent = toggle.checked
+      ? toggle.dataset.labelHide!
+      : toggle.dataset.labelShow!;
+  });
+</script>

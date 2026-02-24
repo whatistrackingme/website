@@ -1,0 +1,81 @@
+---
+import type { Locale } from "../i18n/config";
+import { t, tArray } from "../i18n/utils";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const steps = tArray(locale, "howItWorks.steps");
+
+const icons = [
+  "feather:log-out",
+  "qr",
+  "feather:camera",
+  "feather:bell",
+  "feather:map-pin",
+];
+---
+
+<section id="how-it-works" class="py-20 px-4 bg-base-200">
+  <div class="max-w-6xl mx-auto">
+    <h2
+      class="text-3xl sm:text-4xl font-bold text-center uppercase tracking-wider mb-4"
+    >
+      {t(locale, "howItWorks.heading")}
+    </h2>
+    <div
+      class="w-16 h-1 bg-primary mx-auto rounded-full mb-14"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div
+      class="how-it-works-steps flex flex-col lg:flex-row lg:justify-between relative gap-6 lg:gap-4"
+    >
+      {
+        steps.map((step, i) => (
+            <div class="flex flex-row lg:flex-col items-start lg:items-center flex-1 gap-4 lg:gap-3">
+              {/* Number circle */}
+              <div class="relative z-10 shrink-0 w-10 h-10 rounded-full bg-primary text-primary-content flex items-center justify-center font-mono font-bold text-lg">
+                {i + 1}
+              </div>
+
+              {/* Content: icon + text on mobile (row), stacked on desktop (column) */}
+              <div class="flex flex-col lg:items-center gap-3 min-w-0">
+                {/* Icon */}
+                <div class="rounded-2xl bg-base-100 border border-base-300 p-4 text-primary/70 w-fit">
+                  {icons[i] === "qr" ? (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 lg:w-20 lg:h-20">
+                      <rect x="2" y="2" width="8" height="8" rx="1" />
+                      <rect x="14" y="2" width="8" height="8" rx="1" />
+                      <rect x="2" y="14" width="8" height="8" rx="1" />
+                      <rect x="5" y="5" width="2" height="2" fill="currentColor" />
+                      <rect x="17" y="5" width="2" height="2" fill="currentColor" />
+                      <rect x="5" y="17" width="2" height="2" fill="currentColor" />
+                      <line x1="14" y1="14" x2="14" y2="17" />
+                      <line x1="18" y1="14" x2="22" y2="14" />
+                      <line x1="22" y1="14" x2="22" y2="18" />
+                      <line x1="14" y1="21" x2="18" y2="21" />
+                    </svg>
+                  ) : (
+                    <Icon name={icons[i]} class="w-16 h-16 lg:w-20 lg:h-20" />
+                  )}
+                </div>
+
+                {/* Text */}
+                <div class="lg:text-center">
+                  <h3 class="text-base font-bold">{step.title}</h3>
+                  <p class="text-sm text-base-content/60 leading-relaxed mt-1">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

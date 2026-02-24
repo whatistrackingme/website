@@ -44,11 +44,11 @@
     if (!toggle) return;
 
     const currentTheme =
-      document.documentElement.getAttribute("data-theme") ?? "mocha";
-    toggle.checked = currentTheme === "latte";
+      document.documentElement.getAttribute("data-theme") ?? "witm";
+    toggle.checked = currentTheme === "witm-latte";
 
     toggle.addEventListener("change", () => {
-      const theme = toggle.checked ? "latte" : "mocha";
+      const theme = toggle.checked ? "witm-latte" : "witm";
       document.documentElement.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
     });

@@ -14,6 +14,9 @@
   },
   "dependencies": {
     "@catppuccin/daisyui": "^2.1.1",
+    "@fontsource-variable/murecho": "^5.2.9",
+    "@fontsource-variable/noto-sans-jp": "^5.2.10",
+    "@fontsource-variable/space-grotesk": "^5.2.10",
     "@iconify-json/feather": "^1.2.1",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@playwright/test": "^1.58.2",
     "@typescript-eslint/parser": "^8.55.0",
     "eslint": "^9.39.2",
     "eslint-plugin-astro": "^1.6.0",

@@ -1,5 +1,5 @@
 ---
-title: "WhatIsTracking.ME"
+title: "WhatIsTracking.Me"
 description: "現実世界であなたをデジタル追跡しているのは誰かを発見しましょう。"
 locale: "ja"
 ---

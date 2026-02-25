@@ -1,4 +1,4 @@
-# Whatistracking.me Website
+# WhatIsTracking.Me Website
 
 A single-page static website built with Astro.
 

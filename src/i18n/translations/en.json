@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "WhatIsTracking.ME",
+    "title": "WhatIsTracking.Me",
     "description": "Discover who is digitally tracking you in real life. Wear a QR code, get notified when someone or something interacts with it."
   },
   "nav": {
@@ -8,7 +8,7 @@
     "app": "Open App"
   },
   "hero": {
-    "title": "What Is Tracking ME?",
+    "title": "WhatIsTracking.Me",
     "subtitle": "Many have this question, but there are no definitive answers. In the age of no-consent scraping, we surrender all our digital data. What about our offline interactions in daily life?",
     "cta": "Find Out"
   },

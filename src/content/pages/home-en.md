@@ -1,5 +1,5 @@
 ---
-title: "WhatIsTracking.ME"
+title: "WhatIsTracking.Me"
 description: "Discover who is digitally tracking you in real life."
 locale: "en"
 ---

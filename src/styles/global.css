@@ -162,7 +162,7 @@ code {
   font-family: var(--font-mono);
 }
 
-/* Display headings — green, uppercase, tracked */
+/* Display headings — green, title case, tracked */
 h1,
 h2 {
   color: var(--color-primary);

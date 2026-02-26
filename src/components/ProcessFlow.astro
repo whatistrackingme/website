@@ -1,0 +1,647 @@
+---
+import type { Locale } from "../i18n/config";
+import { t, tArray } from "../i18n/utils";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const steps = tArray(locale, "processFlow.steps");
+---
+
+<section class="pf-section">
+  <!-- Grid background pattern -->
+  <div class="pf-grid-bg" aria-hidden="true"></div>
+  <!-- Radial accent glow -->
+  <div class="pf-glow" aria-hidden="true"></div>
+
+  <div class="pf-heading">
+    <h2
+      class="text-3xl sm:text-4xl font-bold text-center tracking-wider mb-4"
+    >
+      {t(locale, "processFlow.heading")}
+    </h2>
+    <div
+      class="w-16 h-1 bg-primary mx-auto rounded-full mb-14"
+      aria-hidden="true"
+    >
+    </div>
+  </div>
+
+  <div class="pf-container">
+    <div class="pf-flow-grid">
+
+      <!-- ═══ Q1: QR Generated ═══ -->
+      <div class="pf-card" data-step="0">
+        <div class="pf-card-top">
+          <div class="pf-num">1</div>
+          <span class="pf-label">{steps[0].label}</span>
+        </div>
+        <div class="pf-q1-layout">
+          <div class="pf-q1-text">
+            <h3 class="pf-title">{steps[0].title}</h3>
+            <p class="pf-desc">{steps[0].description}</p>
+          </div>
+          <div class="pf-q1-qr-wrap">
+            <div class="pf-qr-box">
+              <canvas id="pf-qr-canvas" width="120" height="120"></canvas>
+              <div class="pf-qr-lock">
+                <Icon name="feather:lock" class="w-5 h-5" />
+              </div>
+            </div>
+            <div class="pf-qr-time" id="pf-qr-time"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow Q1 → Q2 -->
+      <div class="pf-arrow-h" data-arrow="h1" aria-hidden="true"></div>
+
+      <!-- ═══ Q2: Bait Taken ═══ -->
+      <div class="pf-card" data-step="1">
+        <div class="pf-card-top">
+          <div class="pf-num">2</div>
+          <span class="pf-label">{steps[1].label}</span>
+        </div>
+        <h3 class="pf-title">{steps[1].title}</h3>
+        <p class="pf-desc">{steps[1].description}</p>
+        <div class="pf-sub-flow">
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:camera" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">CCTV</span>
+          </div>
+          <div class="pf-mini-arrow"></div>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:database" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">Database</span>
+          </div>
+          <div class="pf-mini-arrow"></div>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:cpu" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">AI</span>
+          </div>
+          <div class="pf-mini-arrow"></div>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:globe" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">Website</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connector between Q2 → Q3 -->
+      <div class="pf-mid-arrow" aria-hidden="true">
+        <div class="pf-mid-line"></div>
+        <div class="pf-mid-head"></div>
+      </div>
+
+      <!-- ═══ Q3: Logged & Purged ═══ -->
+      <div class="pf-card" data-step="2">
+        <div class="pf-card-top">
+          <div class="pf-num">3</div>
+          <span class="pf-label">{steps[2].label}</span>
+        </div>
+        <h3 class="pf-title">{steps[2].title}</h3>
+        <p class="pf-desc">{steps[2].description}</p>
+        <div class="pf-sub-flow">
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:activity" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">DNS</span>
+          </div>
+          <span class="pf-operator">+</span>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:server" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">HTTP</span>
+          </div>
+          <div class="pf-mini-arrow"></div>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:database" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">Store</span>
+          </div>
+          <div class="pf-mini-arrow"></div>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:user-x" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">Request</span>
+          </div>
+          <div class="pf-mini-arrow"></div>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:trash-2" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">Purge</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow Q3 → Q4 -->
+      <div class="pf-arrow-h" data-arrow="h2" aria-hidden="true"></div>
+
+      <!-- ═══ Q4: Location Matching ═══ -->
+      <div class="pf-card" data-step="3">
+        <div class="pf-card-top">
+          <div class="pf-num">4</div>
+          <span class="pf-label">{steps[3].label}</span>
+        </div>
+        <h3 class="pf-title">{steps[3].title}</h3>
+        <p class="pf-desc">{steps[3].description}</p>
+        <div class="pf-sub-flow">
+          <div class="pf-mini">
+            <div class="pf-mini-icon pf-mini-icon--composite">
+              <Icon name="feather:map-pin" class="pf-composite-fg" />
+              <Icon name="feather:map" class="pf-composite-bg" />
+            </div>
+            <span class="pf-mini-label">Location</span>
+          </div>
+          <span class="pf-operator">+</span>
+          <div class="pf-mini">
+            <div class="pf-mini-icon pf-mini-icon--composite">
+              <Icon name="feather:clock" class="pf-composite-fg" />
+              <Icon name="feather:maximize-2" class="pf-composite-bg" />
+            </div>
+            <span class="pf-mini-label">Timestamp</span>
+          </div>
+          <span class="pf-operator">=</span>
+          <div class="pf-mini">
+            <div class="pf-mini-icon"><Icon name="feather:eye" class="w-4 h-4" /></div>
+            <span class="pf-mini-label">Unmasking</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Live QR code generation (client-side) -->
+<script>
+  import QRCode from "qrcode";
+
+  function formatTime() {
+    return new Date().toLocaleTimeString("en-GB", { hour12: false });
+  }
+
+  function renderQR() {
+    const canvas = document.getElementById("pf-qr-canvas") as HTMLCanvasElement | null;
+    const timeEl = document.getElementById("pf-qr-time");
+    if (!canvas) return;
+
+    const uuid = crypto.randomUUID();
+    QRCode.toCanvas(canvas, uuid, {
+      width: 120,
+      margin: 1,
+      color: {
+        dark: "#a6e3a1",
+        light: "#00000000",
+      },
+      errorCorrectionLevel: "M",
+    });
+
+    if (timeEl) timeEl.textContent = formatTime();
+  }
+
+  renderQR();
+  setInterval(renderQR, 5000);
+</script>
+
+<style>
+  /* ── Section ── */
+  .pf-section {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 1rem;
+    background: var(--color-base-200);
+  }
+
+  .pf-grid-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--color-base-300) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-base-300) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    opacity: 0.12;
+  }
+
+  .pf-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, color-mix(in srgb, var(--color-primary) 5%, transparent) 0%, transparent 70%);
+  }
+
+  .pf-heading {
+    position: relative;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .pf-container {
+    position: relative;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  /* ── Flow grid ── */
+  .pf-flow-grid {
+    display: grid;
+    /* Mobile: single column, centered with max-width */
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: stretch;
+    max-width: 24rem;
+    margin: 0 auto;
+  }
+
+  /* ── Cards ── */
+  .pf-card {
+    position: relative;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+    background: color-mix(in srgb, var(--color-primary) 3%, var(--color-base-100));
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pf-card-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    pointer-events: none;
+  }
+
+  .pf-num {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    color: var(--color-primary-content);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1;
+    flex-shrink: 0;
+    transform: translate(-0.5rem, -50%);
+  }
+
+  .pf-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-base-content);
+    opacity: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--color-base-200);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+    border-radius: 9999px;
+    padding: 0.25rem 0.75rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(0, -50%);
+    margin-top: -0.4rem;
+  }
+
+  /* ── Q1 specific: QR code layout ── */
+  .pf-q1-layout {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .pf-q1-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pf-q1-qr-wrap {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .pf-qr-box {
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: 120px;
+    height: 120px;
+  }
+
+  .pf-qr-box canvas {
+    display: block;
+  }
+
+  .pf-qr-lock {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, var(--color-base-100) 85%, transparent);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .pf-qr-time {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--color-primary);
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Titles & descriptions ── */
+  .pf-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--color-base-content);
+    letter-spacing: 0.02em;
+    margin: 0 0 0.25rem;
+  }
+
+  .pf-desc {
+    font-size: 0.875rem;
+    color: var(--color-base-content);
+    opacity: 0.55;
+    line-height: 1.5;
+    margin: 0 0 0.25rem;
+  }
+
+  /* ── Sub-flows (mini icon rows inside Q2, Q3, Q4) ── */
+  .pf-sub-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .pf-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .pf-mini-label {
+    font-size: 0.55rem;
+    color: var(--color-base-content);
+    opacity: 0.45;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pf-mini-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.375rem;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    background: color-mix(in srgb, var(--color-primary) 6%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .pf-mini-icon--composite {
+    overflow: hidden;
+  }
+
+  .pf-mini-icon--composite .pf-composite-bg {
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    opacity: 0.2;
+  }
+
+  .pf-mini-icon--composite .pf-composite-fg {
+    position: relative;
+    width: 0.9rem;
+    height: 0.9rem;
+    z-index: 1;
+  }
+
+  .pf-mini-arrow {
+    display: flex;
+    align-items: center;
+    width: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .pf-mini-arrow::before {
+    content: "";
+    flex: 1;
+    border-top: 1.5px dashed var(--color-primary);
+    opacity: 0.4;
+  }
+
+  .pf-mini-arrow::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 4px solid color-mix(in srgb, var(--color-primary) 50%, transparent);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+  }
+
+  .pf-operator {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    opacity: 0.4;
+    padding: 0 0.25rem;
+  }
+
+  /* ── Horizontal arrows between cards ── */
+  .pf-arrow-h {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0.25rem 0;
+  }
+
+  .pf-arrow-h::before {
+    content: "";
+    width: 2px;
+    height: 1.5rem;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-primary) 0px,
+      var(--color-primary) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    opacity: 0.5;
+  }
+
+  .pf-arrow-h::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+  }
+
+  /* ── Mid arrow (Q2 → Q3 connector) ── */
+  /* Mobile: vertical arrow */
+  .pf-mid-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0;
+  }
+
+  .pf-mid-line {
+    width: 2px;
+    height: 1.5rem;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-primary) 0px,
+      var(--color-primary) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+    opacity: 0.5;
+  }
+
+  .pf-mid-head {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+  }
+
+  /* ═══════════════════════════════════════════
+     2-COLUMN LAYOUT (md) — matches slide 2×2
+     ═══════════════════════════════════════════ */
+  @media (min-width: 768px) {
+    .pf-section {
+      padding: 4rem 2rem;
+    }
+
+    .pf-flow-grid {
+      grid-template-columns: 1fr 4.5rem 1fr;
+      grid-template-rows: 1fr 2rem 1fr;
+      max-width: none;
+    }
+
+    /* Row 1 */
+    .pf-card[data-step="0"] { grid-column: 1; grid-row: 1; }
+    .pf-arrow-h[data-arrow="h1"] { grid-column: 2; grid-row: 1; }
+    .pf-card[data-step="1"] { grid-column: 3; grid-row: 1; }
+
+    /* Row 2: rotated arrow from Q2 (top-right) toward Q3 (bottom-left) */
+    .pf-mid-arrow {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      padding: 0;
+      transform: rotate(45deg);
+      transform-origin: center center;
+    }
+
+    /* Row 3 */
+    .pf-card[data-step="2"] { grid-column: 1; grid-row: 3; }
+    .pf-arrow-h[data-arrow="h2"] { grid-column: 2; grid-row: 3; }
+    .pf-card[data-step="3"] { grid-column: 3; grid-row: 3; }
+
+    /* Horizontal arrows */
+    .pf-arrow-h {
+      flex-direction: row;
+      padding: 0 0.25rem;
+    }
+
+    .pf-arrow-h::before {
+      width: auto;
+      height: auto;
+      flex: 1;
+      border-top: 2.5px dashed var(--color-primary);
+      background: none;
+      opacity: 0.5;
+    }
+
+    .pf-arrow-h::after {
+      border-left: 8px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: none;
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     4-COLUMN LAYOUT (xl) — linear pipeline
+     ═══════════════════════════════════════════ */
+  @media (min-width: 1280px) {
+    .pf-flow-grid {
+      grid-template-columns: 1fr 3.5rem 1fr 3.5rem 1fr 3.5rem 1fr;
+      grid-template-rows: auto;
+    }
+
+    .pf-card[data-step="0"] { grid-column: 1; grid-row: 1; }
+    .pf-arrow-h[data-arrow="h1"] { grid-column: 2; grid-row: 1; }
+    .pf-card[data-step="1"] { grid-column: 3; grid-row: 1; }
+    .pf-mid-arrow { grid-column: 4; grid-row: 1; }
+    .pf-card[data-step="2"] { grid-column: 5; grid-row: 1; }
+    .pf-arrow-h[data-arrow="h2"] { grid-column: 6; grid-row: 1; }
+    .pf-card[data-step="3"] { grid-column: 7; grid-row: 1; }
+
+    /* Reset to horizontal arrow at xl */
+    .pf-mid-arrow {
+      flex-direction: row;
+      transform: none;
+      padding: 0 0.25rem;
+    }
+
+    .pf-mid-line {
+      width: auto;
+      height: 2px;
+      flex: 1;
+      background: repeating-linear-gradient(
+        to right,
+        var(--color-primary) 0px,
+        var(--color-primary) 4px,
+        transparent 4px,
+        transparent 8px
+      );
+    }
+
+    .pf-mid-head {
+      border-left: 8px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-right: none;
+    }
+
+    .pf-title {
+      font-size: 1.1rem;
+    }
+
+    .pf-desc {
+      font-size: 0.8rem;
+    }
+  }
+</style>

@@ -37,6 +37,31 @@
       }
     ]
   },
+  "processFlow": {
+    "heading": "The Pipeline",
+    "steps": [
+      {
+        "title": "QR Generated",
+        "label": "Client Device",
+        "description": "Encodes an encrypted timestamp and unique identifier"
+      },
+      {
+        "title": "Bait Taken",
+        "label": "Real World",
+        "description": "CCTV cameras, bots, scanners, and browsers all trigger the trap"
+      },
+      {
+        "title": "Logged & Purged",
+        "label": "Tracking Server",
+        "description": "DNS and HTTP requests stored pseudoanonymously, deleted once read"
+      },
+      {
+        "title": "Location Matching",
+        "label": "Client Dashboard",
+        "description": "Client aligns the decrypted timestamp with local position history"
+      }
+    ]
+  },
   "faq": {
     "heading": "Common Questions",
     "showAll": "Show all",

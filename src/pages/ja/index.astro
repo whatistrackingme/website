@@ -3,13 +3,23 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import HowItWorks from "../../components/HowItWorks.astro";
+import ProcessFlow from "../../components/ProcessFlow.astro";
 import FAQ from "../../components/FAQ.astro";
 
 const locale = "ja" as const;
 
 const pages = await getCollection("pages");
-const page = pages.find((p) => p.id === "home-ja");
-const { Content } = page ? await render(page) : { Content: null };
+const introPage = pages.find((p) => p.id === "home-ja");
+const techPage = pages.find((p) => p.id === "home-ja-technical");
+const { Content: IntroContent } = introPage
+  ? await render(introPage)
+  : { Content: null };
+const { Content: TechContent } = techPage
+  ? await render(techPage)
+  : { Content: null };
+
+const proseClasses =
+  "prose prose-lg max-w-3xl mx-auto prose-headings:text-primary prose-headings:tracking-wider prose-a:text-primary prose-blockquote:border-l-primary/40 prose-blockquote:bg-base-200/50 prose-blockquote:rounded-r-lg prose-blockquote:py-1 prose-blockquote:px-4 prose-strong:text-base-content";
 ---
 
 <BaseLayout locale={locale}>
@@ -17,10 +27,22 @@ const { Content } = page ? await render(page) : { Content: null };
   <HowItWorks locale={locale} />
 
   {
-    Content && (
+    IntroContent && (
       <section class="py-20 px-4">
-        <div class="prose prose-lg max-w-3xl mx-auto prose-headings:text-primary prose-headings:tracking-wider prose-a:text-primary prose-blockquote:border-l-primary/40 prose-blockquote:bg-base-200/50 prose-blockquote:rounded-r-lg prose-blockquote:py-1 prose-blockquote:px-4 prose-strong:text-base-content">
-          <Content />
+        <div class={proseClasses}>
+          <IntroContent />
+        </div>
+      </section>
+    )
+  }
+
+  <ProcessFlow locale={locale} />
+
+  {
+    TechContent && (
+      <section class="py-20 px-4">
+        <div class={proseClasses}>
+          <TechContent />
         </div>
       </section>
     )

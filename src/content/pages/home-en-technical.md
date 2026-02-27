@@ -18,7 +18,7 @@ you to register user identifiers and subscribe to events that are associated wit
 that keeps the interactions until the user downloads them, and a user-facing client application.
 We have all of this code open source and you can learn more about technical details in our [repository](https://github.com/whatistrackingme/poc).
 
-You register yourself on [app.whatistracking.me](https://app.whatistracking.me) without providing any information
+You register yourself on [app.staging.whatistracking.me](https://app.staging.whatistracking.me/) without providing any information
 about yourself. You will get a bunch of public identifiers that will be used to create unique subdomains that allow
 us to associate interactions with you. Let us assume one of them is `totallyrandomidentifier`.
 

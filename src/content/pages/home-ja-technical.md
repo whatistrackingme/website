@@ -14,7 +14,7 @@ locale: "ja"
 これをベースに、処理・マッチングサービス、ユーザー識別子の登録やこれらの識別子サブドメインに関連するイベントのサブスクリプションを可能にするユーザー向けAPI、ユーザーがダウンロードするまでインタラクションを保持するデータベース、そしてユーザー向けクライアントアプリケーションで拡張しました。
 すべてのコードはオープンソースで、技術的な詳細は[リポジトリ](https://github.com/whatistrackingme/poc)で確認できます。
 
-[app.whatistracking.me](https://app.whatistracking.me)で個人情報を提供せずに登録できます。
+[app.staging.whatistracking.me](https://app.staging.whatistracking.me/)で個人情報を提供せずに登録できます。
 インタラクションをあなたに関連付けるユニークなサブドメインを作成するための公開識別子が提供されます。
 たとえば、その1つが`totallyrandomidentifier`だとします。
 `https://totallyrandomidentifier.tracking-collector.com`にアクセスすると、最低2つのインタラクションイベントが作成されます。

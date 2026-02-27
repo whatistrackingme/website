@@ -10,7 +10,8 @@
   "hero": {
     "title": "WhatIsTracking.Me",
     "subtitle": "Many have this question, but there are no definitive answers. In the age of no-consent scraping, we surrender all our digital data. What about our offline interactions in daily life?",
-    "cta": "Find Out"
+    "cta": "Open App",
+    "viewSource": "View Source"
   },
   "howItWorks": {
     "heading": "How It Works",
@@ -104,6 +105,9 @@
         "answer": "We are not able to see your location or timestamps at any time. We are technically able to see the raw interaction data and the metadata you create when interacting with our service. Nevertheless, we chose to not use them without explicit consent and we are open to implement effective technical measures to improve this."
       }
     ]
+  },
+  "banner": {
+    "text": "This project is in early alpha. It is an experimental proof-of-concept and should not be relied upon for personal safety, legal evidence, or any security-critical purpose. Expect bugs, breaking changes, and data loss."
   },
   "footer": {
     "signoff": "Built with <3 for information symmetry",

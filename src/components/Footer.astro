@@ -1,5 +1,13 @@
 ---
 import { execSync } from "node:child_process";
+import type { Locale } from "../i18n/config";
+import { t, getLocalizedPath } from "../i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
 
 let gitHash = "unknown";
 try {
@@ -13,9 +21,14 @@ const githubUrl = "https://github.com/whatistrackingme/website";
 
 <footer class="border-t border-base-300">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 text-sm text-base-content/50">
-    <div class="flex items-center gap-2">
-      <span class="logo-mark h-5 w-5" aria-hidden="true"></span>
-      <a href="https://whatistracking.me" target="_blank" rel="noopener noreferrer" class="font-display text-primary font-semibold tracking-wide hover:text-primary/80">WhatIsTracking.Me</a>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="logo-mark h-5 w-5" aria-hidden="true"></span>
+        <a href="https://whatistracking.me" target="_blank" rel="noopener noreferrer" class="font-display text-primary font-semibold tracking-wide hover:text-primary/80">WhatIsTracking.Me</a>
+      </div>
+      <a href={getLocalizedPath("/privacy", locale)} class="hover:text-base-content text-xs">
+        {t(locale, "footer.privacy")}
+      </a>
     </div>
     <div class="flex items-center gap-4">
       <a

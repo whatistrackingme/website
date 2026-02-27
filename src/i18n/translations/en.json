@@ -107,6 +107,7 @@
   },
   "footer": {
     "signoff": "Built with <3 for information symmetry",
-    "openApp": "Open App"
+    "openApp": "Open App",
+    "privacy": "Privacy Policy"
   }
 }

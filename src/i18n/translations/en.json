@@ -22,7 +22,7 @@
       },
       {
         "title": "Wear a QR Code",
-        "description": "Display a unique QR code from our app on a badge, sticker, device, or paper."
+        "description": "Display a unique QR code from our app on a phone or an e-ink display."
       },
       {
         "title": "Get Captured",
@@ -102,7 +102,7 @@
       },
       {
         "question": "Can I self-host this?",
-        "answer": "We are not able to see your location or timestamps at any time. We are technically able to see the raw interaction data and the metadata you create when interacting with our service. Nevertheless, we chose to not use them without explicit consent and we are open to implement effective technical measures to improve this."
+        "answer": "Yes."
       }
     ]
   },

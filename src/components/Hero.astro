@@ -9,7 +9,7 @@ interface Props {
 const { locale } = Astro.props;
 ---
 
-<section class="relative overflow-hidden min-h-[70vh] flex items-center">
+<section class="relative overflow-hidden flex items-center">
   <!-- Gradient background -->
   <div
     class="absolute inset-0 bg-gradient-to-br from-base-200 via-base-100 to-base-200"
@@ -37,7 +37,7 @@ const { locale } = Astro.props;
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 w-full max-w-4xl mx-auto px-4 py-20 text-center">
+  <div class="relative z-10 w-full max-w-4xl mx-auto px-4 py-24 sm:py-32 lg:py-40 text-center">
     <div class="animate-fade-in-up">
       <h1
         class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-wider leading-tight"

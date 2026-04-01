@@ -12,7 +12,7 @@ locale: "ja"
 このスタックの詳細については、[interactsh](https://github.com/projectdiscovery/interactsh)プロジェクトを作成した[ProjectDiscovery](https://github.com/projectdiscovery)をご覧ください。
 
 これをベースに、処理・マッチングサービス、ユーザー識別子の登録やこれらの識別子サブドメインに関連するイベントのサブスクリプションを可能にするユーザー向けAPI、ユーザーがダウンロードするまでインタラクションを保持するデータベース、そしてユーザー向けクライアントアプリケーションで拡張しました。
-すべてのコードはオープンソースで、技術的な詳細は[リポジトリ](https://github.com/whatistrackingme/poc)で確認できます。
+すべてのコードはオープンソースで、技術的な詳細は[リポジトリ](https://github.com/whatistrackingme/whatistrackingme)で確認できます。
 
 [app.staging.whatistracking.me](https://app.staging.whatistracking.me/)で個人情報を提供せずに登録できます。
 インタラクションをあなたに関連付けるユニークなサブドメインを作成するための公開識別子が提供されます。
@@ -31,6 +31,6 @@ locale: "ja"
 これはスマートフォンのディスプレイやバッジ、ステッカー、紙の印刷物の物理的な制限によるものです。
 10インチのeペーパーディスプレイにQRコードを表示でき、離れた場所からでもスキャンしやすくなります。
 このディスプレイの選択により、追加の機器なしで数週間から数ヶ月間、充電なしでこのデバイスを身につけることができます。
-完全な実装は[リポジトリ](https://github.com/whatistrackingme/poc/tree/main/inkplate-10)の`/Inkplate`サブフォルダで確認できます。
+完全な実装は[リポジトリ](https://github.com/whatistrackingme/whatistrackingme/tree/main/inkplate-10)の`/Inkplate`サブフォルダで確認できます。
 
 この位置情報、サブドメインにエンコードされたタイムスタンプ、そしてインタラクション自体のメタデータにより、いつ、どこで、そしておそらく何があなたを追跡したかを理解できます。アプリにはインタラクションを位置情報にマッピングして表示するマップ機能があり、より視覚的な全体像を把握できます。

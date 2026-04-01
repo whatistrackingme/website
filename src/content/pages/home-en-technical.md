@@ -16,7 +16,7 @@ created the [interactsh](https://github.com/projectdiscovery/interactsh) project
 We built on top of this and extended it with a processing and matching service, a user-facing API that allows
 you to register user identifiers and subscribe to events that are associated with unique identifier subdomains, a database
 that keeps the interactions until the user downloads them, and a user-facing client application.
-We have all of this code open source and you can learn more about technical details in our [repository](https://github.com/whatistrackingme/poc).
+We have all of this code open source and you can learn more about technical details in our [repository](https://github.com/whatistrackingme/whatistrackingme).
 
 You register yourself on [app.staging.whatistracking.me](https://app.staging.whatistracking.me/) without providing any information
 about yourself. You will get a bunch of public identifiers that will be used to create unique subdomains that allow
@@ -37,7 +37,7 @@ We also created an open-source physical device based on an e-paper toolkit from 
 This is due to the physical limitations of a smartphone display or a badge/sticker printout.
 This allows us to display the QR code on a 10" e-paper display that is easier to scan from a distance.
 The display choice also allows us to wear this device without additional equipment for weeks and months without needing to charge.
-You can find the full implementation in the `/Inkplate` subfolder in the [repository](https://github.com/whatistrackingme/poc/tree/main/inkplate-10).
+You can find the full implementation in the `/Inkplate` subfolder in the [repository](https://github.com/whatistrackingme/whatistrackingme/tree/main/inkplate-10).
 
 With this location, timestamp encoded in the subdomain, and the metadata from the interaction itself, you will be able to understand when, where, and
 likely what tracked you. The app has a map feature that shows you interactions mapped to locations to get a more visual picture.

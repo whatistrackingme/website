@@ -11,7 +11,6 @@
     }
   },
   "postCreateCommand": "npm install",
-  "postStartCommand": "npm run dev -- --host 0.0.0.0",
   "forwardPorts": [4321],
   "portsAttributes": {
     "4321": {

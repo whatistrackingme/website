@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
-import AlphaBanner from "../components/AlphaBanner.astro";
+import ArchivedBanner from "../components/ArchivedBanner.astro";
 import Footer from "../components/Footer.astro";
 import type { Locale } from "../i18n/config";
 import { t } from "../i18n/utils";
@@ -35,7 +35,7 @@ const siteDescription = description ?? t(locale, "site.description");
   </head>
   <body class="min-h-screen flex flex-col bg-base-100 text-base-content">
     <Navbar locale={locale} />
-    <AlphaBanner locale={locale} />
+    <ArchivedBanner locale={locale} />
     <main class="flex-1">
       <slot />
     </main>

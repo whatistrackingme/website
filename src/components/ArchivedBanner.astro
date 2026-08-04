@@ -1,0 +1,47 @@
+---
+import type { Locale } from "../i18n/config";
+import { t } from "../i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const sourceUrl = "https://github.com/whatistrackingme/whatistrackingme";
+---
+
+<div class="bg-[#3a2e1a] py-2.5">
+  <div class="mx-auto flex max-w-5xl items-start gap-3 px-4">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="mt-0.5 h-5 w-5 shrink-0 text-[#f0c674]"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="21 8 21 21 3 21 3 8"></polyline>
+      <rect x="1" y="3" width="22" height="5"></rect>
+      <line x1="10" y1="12" x2="14" y2="12"></line>
+    </svg>
+    <p class="text-sm text-[#e6d3a3]">
+      <span class="font-semibold text-[#f0c674]"
+        >{t(locale, "archived.title")}</span
+      >
+      {" "}
+      {t(locale, "archived.text")}
+      {" "}
+      <a
+        href={sourceUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline underline-offset-2 hover:text-[#f0c674]"
+      >
+        {t(locale, "archived.sourceLink")}
+      </a>
+    </p>
+  </div>
+</div>

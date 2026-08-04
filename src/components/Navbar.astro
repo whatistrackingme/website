@@ -25,14 +25,20 @@ const { locale } = Astro.props;
       </a>
     </div>
     <div class="navbar-end gap-1.5">
-      <a
-        href="https://app.staging.whatistracking.me/"
-        class="btn btn-primary btn-sm shadow-sm"
-        target="_blank"
-        rel="noopener noreferrer"
+      <!-- Project archived: the hosted app link is disabled, not removed. -->
+      <span
+        class="tooltip tooltip-bottom"
+        data-tip={t(locale, "nav.appDisabled")}
       >
-        {t(locale, "nav.app")}
-      </a>
+        <button
+          type="button"
+          class="btn btn-sm btn-disabled"
+          disabled
+          aria-disabled="true"
+        >
+          {t(locale, "nav.app")}
+        </button>
+      </span>
       <LanguageSwitcher locale={locale} />
       <ThemeToggle />
     </div>

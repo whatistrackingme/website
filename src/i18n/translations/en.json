@@ -5,7 +5,8 @@
   },
   "nav": {
     "home": "Home",
-    "app": "Open App"
+    "app": "Open App",
+    "appDisabled": "The hosted app is offline while the project is archived. The source code is still available if you want to run it yourself."
   },
   "hero": {
     "title": "WhatIsTracking.Me",
@@ -105,6 +106,11 @@
         "answer": "Yes."
       }
     ]
+  },
+  "archived": {
+    "title": "This project is archived until further notice.",
+    "text": "The source code is still there and anyone can host it themselves, but our attention has moved elsewhere for now.",
+    "sourceLink": "View the source"
   },
   "banner": {
     "text": "This project is in early alpha. It is an experimental proof-of-concept and should not be relied upon for personal safety, legal evidence, or any security-critical purpose. Expect bugs, breaking changes, and data loss."
